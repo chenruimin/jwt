@@ -9,8 +9,7 @@ exports.handler = async (event, context) => {
 	}
 	console.log(event)
 	// Here I get the token from the Bearer Header, Verify it and convert it to a user object -  How?
-	// const token = req.headers['x-access-token']
-	const token = "sdkjhgcskj"
+	const token = event['headers']['x-access-token']
     if (!token) {
 		return {
 			statusCode: 400,
