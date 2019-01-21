@@ -1,0 +1,10 @@
+[build]
+	publish = "dist"
+	environment = {NODE_ENV = "production"}
+	command = "npm run generate && npm run functions:build"
+    functions = "./functions"
+
+[[redirects]]
+	from = "/api/*"
+	to = "https://nuxt-login-test.netlify.com/.netlify/functions/:splat"
+	status = 200
