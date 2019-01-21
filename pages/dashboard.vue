@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
 	middleware: 'auth',
 	data(){
@@ -23,7 +21,7 @@ export default {
 	},
 	methods:{
 		addTodo(){
-				axios.post("/api/add-todo", {}).then(r => console.log(r.data))
+				this.$axios.post("/api/add-todo", {}).then(r => console.log(r.data))
 		},
 		logout() {
   			this.$auth.logout();

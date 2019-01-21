@@ -46,16 +46,20 @@ export default {
 	},
 
 	methods: {
-		login() {
+		async login() {
 			try {
-			this.$auth.loginWith('local', {
-				data: {
-					email: this.email,
-					password: this.password
+				const res = await this.$auth.loginWith('local', {
+					data: {
+						email: this.email,
+						password: this.password
+					}
+				})
+				const token = localStorage.getItem('auth._token.local')
+				console.log('token', token)
+				if (token) {
+					this.$axios.setHeader('Authorization', token)
 				}
-			})
-
-			this.$router.push('/dashboard/')
+				this.$router.push('/dashboard/')
 			} catch (e) {
 				console.log(e)
 				this.error = e.response.data.message
