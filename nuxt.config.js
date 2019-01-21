@@ -35,7 +35,7 @@ module.exports = {
 					//login: { url: 'api/login', method: 'post', propertyName: 'data.token' },
 					login: { url: 'api/login', method: 'post', propertyName: 'token' },
 					//register: { url: 'api/register', method: 'post', propertyName: 'data.token' },
-					user: { url: 'api/user', method: 'get', propertyName: 'data' },
+					user: { url: 'api/user', method: 'get', propertyName: false },
 					logout: false // Since we are stateless we simply remove the user from Localhost
 				}
 			}
